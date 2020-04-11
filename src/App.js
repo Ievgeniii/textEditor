@@ -24,22 +24,6 @@ const App = () => {
   }
 
   const getJSON = () => {
-    let current;
-
-    for (let i = 0; i < editedText.length; i++) {
-      current = editedText[i];
-      for (let j = editedText.length - 1; j > i; j--) {
-        if (current.foreColor === editedText[j].foreColor && current.backColor === editedText[j].backColor && current.fontSize === editedText[j].fontSize) {
-          if (Array.isArray(current.name)) {
-            current.name = current.name.concat([editedText[j].name]);
-          } else {
-            current.name = [].concat([editedText[j].name, current.name]);
-          }
-          editedText.splice(j, 1);
-        }
-      }
-    }
-
     setResult(editedText.length ? JSON.stringify(editedText) : 'Empty');
     console.log(editedText.length ? JSON.stringify(editedText) : 'Empty');
   }
